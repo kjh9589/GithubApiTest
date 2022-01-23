@@ -17,14 +17,12 @@ object GithubApiService {
         .build()
         .create(GithubService::class.java)
 
-    // token을 local.properties에 숨기면 깃허브에서 볼 수 없기에 하드코딩
-
     private fun buildOkHttpClient(): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(Interceptor { chain ->
                 val request = chain.request().newBuilder()
                     .header("Accept", "application/vnd.github.v3+json")
-                    .addHeader("Authorization", "token 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")
+                    .addHeader("Authorization", "token ${BuildConfig.GITHUB_API_KEY}")
                     .build()
                 return@Interceptor chain.proceed(request)
             })

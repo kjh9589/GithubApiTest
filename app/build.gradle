@@ -3,7 +3,9 @@ plugins {
     id 'kotlin-android'
     id 'androidx.navigation.safeargs'
 }
-
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def githubAPIKey = properties.getProperty('github.api.key')
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
@@ -14,6 +16,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        buildConfigField("String", "GITHUB_API_KEY", githubAPIKey)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
