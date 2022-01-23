@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="modelRepo"
+            type="com.teamnoyes.githubtest.domain.model.ModelSealedUserDetail.ModelUserRepo" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/userRepoNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{modelRepo.repoName}"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    tools:text="repoName" />
+
+                <TextView
+                    android:id="@+id/userRepoDescriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{modelRepo.repoDescription != &quot;&quot; ? modelRepo.repoDescription : @string/no_user_repo_description}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:textColor="?android:attr/textColorSecondary"
+                    tools:text="American Airlines said flight AAL38 with 129 passengers on board returned to Miami where police were waiting.\n
+They escorted a woman in her 40s off the plane, reports say.\n
+She has been placed on a list of people barred from flying with American Airlines, pending further investigation, the airline said." />
+
+                <TextView
+                    android:id="@+id/userRepoLangTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@{modelRepo.repoLang != &quot;&quot; ? modelRepo.repoLang : @string/no_user_repo_language}"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    tools:text="kotlin" />
+
+                <TextView
+                    android:id="@+id/userStarCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:drawableStart="@drawable/star_24"
+                    android:gravity="center"
+                    android:text="@{modelRepo.repoStar}"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    tools:text="10" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/divider_color" />
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
