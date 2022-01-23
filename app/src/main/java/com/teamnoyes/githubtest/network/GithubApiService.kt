@@ -24,7 +24,7 @@ object GithubApiService {
             .addInterceptor(Interceptor { chain ->
                 val request = chain.request().newBuilder()
                     .header("Accept", "application/vnd.github.v3+json")
-                    .addHeader("Authorization", "token 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")
+                    .addHeader("Authorization", "token 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")
                     .build()
                 return@Interceptor chain.proceed(request)
             })
